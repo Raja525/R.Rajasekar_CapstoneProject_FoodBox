@@ -1,0 +1,192 @@
+@charset "ISO-8859-1";
+
+#imagecontainer
+{
+	width:100%;
+	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/FoodBox/resources/img/home2.jpg');
+		background-size:cover;
+		background-position:center;
+		background-repeat:no-repeat;
+}
+#slogn
+{
+	font-size:120px;
+		font-family:'Montserrat',Sans-serif;
+		font-weight:900px;
+		color:white;
+		padding:80px 60px;
+		line-height:140px;
+}
+#logo
+{
+	float:left;
+	color:white;
+	font-family:'Montserrat',sans-serif;
+	font-weight:900;
+	font-size:22px;
+	padding:1% 4.5%;
+	background:linear-gradient(to right,#FFDEDE, #FFE459);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#options
+{
+	font-family:'Montserrat',sans-serif;
+	font-weight:800;
+	font-size:16px;
+		padding:1% 2%;
+		float:right;
+		width:20rem;
+}
+#options a
+{
+	text-decoration:none;
+	color:white;
+	padding:1%;
+}
+#options a:hover
+{
+	background:linear-gradient(to right,#FFDEDE, #FFE459);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition-duration:1s;
+  transition:1s ease-in-out;
+}
+.links
+{
+	border-right:solid 1px white;
+}
+#signin
+{
+	border:none;
+}
+#searchcontainer
+{
+	padding:5%;
+	 text-align:center;
+  align-content:center;
+}
+#searchcontainer .btn
+{
+	background:linear-gradient(to right,#FFDEDE, #FFE459);
+  font-size:22px;
+  font-weight:900;
+  color:black;
+  border:none;
+  border-radius:20px;
+  padding:10px 20px;
+}
+#section4
+{
+	padding:5%;
+}
+#section2
+{
+	padding:5%;
+}
+#sec2title
+{
+	padding:1%;
+	font-family:'Montserrat',sans-serif;
+	font-weight:800;
+	text-align:center;
+}
+.msg .title
+{
+	padding:1%;
+	font-family:'Montserrat',sans-serif;
+	font-weight:800;
+	text-align:center;
+}
+.msg p
+{
+	text-align:justify;
+}
+#section2 a
+{
+	text-decoration:none;
+	color:black;
+}
+#section3
+{
+	width:100%;
+}
+#section3 .sectitle
+{
+	font-family:'Montserrat',sans-serif;
+	font-weight:800;
+	text-align:center;
+	font-size:32px;
+	background-color:#FDF6F0;
+	padding-top:3%;
+}
+#section3 #container
+{
+	padding:5% 10%;
+	background-color:#FDF6F0;
+}
+#section4 .sectitle
+{
+	font-family:'Montserrat',sans-serif;
+	font-weight:800;
+	text-align:center;
+	font-size:32px;
+	padding-bottom:5%;
+	padding-top:3%;
+}
+#section4 #container
+{
+	padding:5% 2%;
+}
+#item .foodlist
+{
+	width:200px;
+	height:200px;
+}
+#item .content
+{
+	padding:0 1% 0 6%;
+}
+.filters
+{
+	text-align:center;
+	font-family:'Montserrat',sans-serif;
+	font-weight:900;
+	font-size:20px;
+	padding:20px;
+}
+.filtersection
+{
+	border-right:solid 1px gray;
+}
+#imagecontainer
+{
+	padding-top:2%;
+}
+#section4 #searchbox
+{
+	padding:0 3% 2% 3%;
+}
+#section5
+{
+	background-color:black;
+	color:white;
+	padding:5%;
+}
+#sec1,#sec2
+{
+	border-right:solid 1px white;
+}
+#section5 .row
+{
+	margin:0px;
+}
+#sort
+{
+	padding:2%;
+}
+#section4 a
+{
+	text-decoration:none;
+	color:black;
+}

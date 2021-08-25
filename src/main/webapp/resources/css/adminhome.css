@@ -1,0 +1,108 @@
+@charset "ISO-8859-1";
+#title
+{
+	border-bottom:solid 1px;
+}
+#title .col-md-6
+{
+	padding:1rem;
+}
+#title .user
+{
+	text-align:right;
+	padding:1rem 2rem;
+}
+#bodybox
+{
+	margin:0;
+}
+#title .row
+{
+	margin:0;
+	font-family:'Montserrat',sans-serif;
+	font-size:22px;
+	
+}
+#sidebar
+{
+	border-right:solid 1px black;
+	padding:2%;
+	
+}
+#sidebar a
+{
+	text-decoration:none;
+	color:black;
+	padding:1rem;
+	font-family:sans-serif;
+	font-size:20px;
+}
+#sidebar ul
+{
+	list-style:none;
+	padding:0.5rem;
+}
+#sidebar ul li
+{
+	padding:20px 10px;
+	text-align:center;
+	background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+	 background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
+}
+#sidebar ul li:hover
+{
+	
+	transition:0.5s ease;
+	 background-size: 100% 88%;
+	
+}
+
+
+#section4 #container
+{
+	padding:5% 2%;
+}
+#item .foodlist
+{
+	width:200px;
+	height:200px;
+}
+#item .content
+{
+	padding:0 1% 0 6%;
+}
+#imagecontainer
+{
+	padding-top:2%;
+}
+#section4 #searchbox
+{
+	padding:0 3% 2% 3%;
+}
+#item.row
+{
+	width:100%;
+	
+	box-shadow:0 6px 12px -4px;
+	padding:5%;
+	margin:0px;
+}
+#foodlist
+{
+	padding:5%;
+}
+#sort
+{
+	padding:2% 0;
+}
+#compress
+{
+	padding:5%;
+}
+#foodlist input
+{
+	margin-bottom:20px;
+}
