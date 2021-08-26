@@ -116,7 +116,8 @@
 		<%
 		ArrayList<String> list=new ArrayList<String>();
 	Class.forName("com.mysql.jdbc.Driver");
-	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+//	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+	Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
 //	Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/medicare","root","rootraja");
 	Statement st=con.createStatement();
 	ResultSet rs=st.executeQuery("select * from kart_table where UserId='"+userid+"'");
@@ -129,7 +130,8 @@
 	if(msg==null)
 	{
 	Class.forName("com.mysql.jdbc.Driver");
-	Connection con1=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+	Connection con1=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
+//	Connection con1=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
 //	Connection con1=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/medicare","root","rootraja");
 	Statement st1=con1.createStatement();
 	for(int i=0;i<list.size();i++)
@@ -161,7 +163,8 @@
 	}else
 	{
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection con1=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+		Connection con1=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
+//		Connection con1=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
 //		Connection con1=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/medicare","root","rootraja");
 		Statement st1=con1.createStatement();
 		ResultSet rs1=st1.executeQuery("select * from fooditems_table where Id='"+msg+"'");
@@ -202,7 +205,8 @@
 	   <%
 	   //	System.out.println(name+" "+password);
 	   Class.forName("com.mysql.jdbc.Driver");
-		Connection con2=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+	//	Connection con2=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+		Connection con2=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
 	//	Connection con2=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/medicare","root","rootraja");
 		Statement st2=con2.createStatement();
 		ResultSet rs2=st2.executeQuery("select * from userdetail_table where UserId='"+userid+"'");

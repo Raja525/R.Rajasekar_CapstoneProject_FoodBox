@@ -95,7 +95,8 @@
 		<%
 	
 		Class.forName("com.mysql.jdbc.Driver");
-    	Connection con1=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+			Connection con1=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
+    //	Connection con1=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
 	//	Connection con1=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/medicare","root","rootraja");
     	Statement st1=con1.createStatement();
     	ResultSet rs1=st1.executeQuery("select * from fooditems_table where Id='"+itemid+"'");

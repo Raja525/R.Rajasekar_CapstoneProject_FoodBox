@@ -35,7 +35,9 @@ public class homecontroller {
 		}else {
 		int val=0;
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+	//	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+		Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
+		
 		Statement st=con.createStatement();
 		ResultSet rs=st.executeQuery("select Name,Password from userdetail_table");
 		while(rs.next())
@@ -73,7 +75,8 @@ public class homecontroller {
 		String password=req.getParameter("password");
 		
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+	//	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+		Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
 		PreparedStatement ps=con.prepareStatement("insert into userdetail_table(Name,MailId,MobileNo,Address,Password)values(?,?,?,?,?)");
 		ps.setString(1,username);
 		ps.setString(2,mail);
@@ -112,7 +115,8 @@ public class homecontroller {
 		String userid=null;
 		
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+	//	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+		Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
 		Statement st=con.createStatement();
 		ResultSet rs=st.executeQuery("select UserId from userdetail_table where Name='"+name+"'");
 		while(rs.next())
@@ -121,7 +125,8 @@ public class homecontroller {
 		}
 		
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection con1=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+	//	Connection con1=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+		Connection con1=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
 		PreparedStatement ps=con1.prepareStatement("insert into kart_table(UserId,FoodId)values(?,?)");
 		ps.setString(1, userid);
 		ps.setString(2, itemid);
@@ -228,7 +233,8 @@ public class homecontroller {
 		String category=req.getParameter("category");
 		
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+	//	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+		Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
 		PreparedStatement ps=con.prepareStatement("insert into fooditems_table(FoodName,Price,Cousines,Description,ImgName,DiscountPercentage,Status,Category)values(?,?,?,?,?,?,?,?)");
 		ps.setString(1, foodname);
 		ps.setString(2, price);
@@ -256,7 +262,8 @@ public class homecontroller {
     	String id=(String)update.getAttribute("Id");
 		
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+	//	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+		Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
 		PreparedStatement ps=con.prepareStatement("update fooditems_table set FoodName='"+foodname+"', Price='"+price+"', Description='"+description+"', Category='"+category+"', ImgName='"+imgname+"', Cousines='"+cousines+"', Status='"+status+"', DiscountPercentage='"+disprice+"' where Id='"+id+"'");
 		ps.executeUpdate();
 		
@@ -267,8 +274,8 @@ public class homecontroller {
 	{
 		String id=req.getParameter("deletefood");
 		Class.forName("com.mysql.jdbc.Driver");
-			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
-		//	Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/medicare","root","rootraja");
+	//		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+		Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
 			PreparedStatement ps=con.prepareStatement("delete from fooditems_table where Id='"+id+"'");
 			ps.executeUpdate();
 		res.sendRedirect("adminhome.jsp?msg=4");
@@ -281,14 +288,16 @@ public class homecontroller {
 		if(arr[1].equals("enable"))
 		{
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+	//	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+		Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
 		PreparedStatement ps=con.prepareStatement("update fooditems_table set Status='disable' where Id='"+arr[0]+"'");
 		ps.executeUpdate();
 		}
 		else
 		{
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+	//		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+			Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
 			PreparedStatement ps=con.prepareStatement("update fooditems_table set Status='enable' where Id='"+arr[0]+"'");
 			ps.executeUpdate();
 		}
@@ -300,8 +309,8 @@ public class homecontroller {
 		String id=req.getParameter("removekart");
 		System.out.print(id);
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
-	//	Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/medicare","root","rootraja");
+	//	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+		Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
 		PreparedStatement ps=con.prepareStatement("delete from kart_table where FoodId='"+id+"'");
 		ps.executeUpdate();
 	res.sendRedirect("kart.jsp");

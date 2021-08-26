@@ -86,7 +86,8 @@
 	<div style="position:absolute;top:0;left:10px;padding:30px 20px;"><a href="page3.jsp?msg=<%=id %>" style="color:white;text-decoration:none;"><i class="fa fa-arrow-left" style="font-size:30px"></i></a></div>
 	<%
 	Class.forName("com.mysql.jdbc.Driver");
-	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
+	Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
+//	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/foodbox","root","rootraja");
 //	Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/medicare","root","rootraja");
 	Statement st=con.createStatement();
 	ResultSet rs=st.executeQuery("select * from fooditems_table where Id='"+id+"'");
