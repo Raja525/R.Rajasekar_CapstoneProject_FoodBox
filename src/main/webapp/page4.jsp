@@ -103,9 +103,18 @@
 							<div class="foodtitle" style="font-family:'Montserrat',sans-serif;"><%=rs.getString("FoodName") %></div>
 							<span><%=rs.getString("Cousines") %>(<%=rs.getString("Category") %>)</span>
 		
-							<div>Discount: <%=rs.getString("DiscountPercentage") %></div>
-							<div id="order" style="padding:10px 0px; font-family:'Montserrat',sans-serif; border-radius:5px;">Price: Rs.<%=rs.getString("Price") %></div>
-						</div>			
+							<div style="background-color:red;padding:6px 4px;color:white;border-radius:5px;width:120px;text-align:center;">Discount <%=rs.getString("DiscountPercentage") %>%</div>
+							<div id="order" style="padding:10px 0;text-decoration:line-through;color:red; font-family:sans-serif; border-radius:5px; width:100px;">Price: Rs.<%=rs.getString("Price") %></div>
+							<%
+								String dis=rs.getString("DiscountPercentage");
+								String pri=rs.getString("Price");
+								int discount=100-Integer.valueOf(dis);
+								int price=Integer.valueOf(pri);
+								float amount=(discount*price)/100;
+								int amt= (int)amount;
+							%>
+							<div id="order" style="padding:0px 0; font-family:'Montserrat',sans-serif; border-radius:5px;">Price: Rs.<%=amt %></div>
+					</div>			
 						
 					</div>
 	</div>

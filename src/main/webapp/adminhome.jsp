@@ -3,6 +3,7 @@
     <%@page import="java.sql.*" %>
     <%
     	String result=request.getParameter("msg");
+    	String sort=request.getParameter("message");
     	//System.out.println(result);
     	if(result==null)
     	{
@@ -120,9 +121,9 @@ color:black;
 			<div id="container">
 			<div id="sort">Sort By : 
 			<span>
-				<form action="sort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" class="btn btn-danger" name="sort" value="Price"></form>
-				<form action="sort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" name="sort" value="Category" class="btn btn-danger"></form>
-				<form action="sort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" value="Id" name="sort" class="btn btn-danger"></form>
+				<form action="adminsort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" class="btn btn-danger" name="sort" value="Price"></form>
+				<form action="adminsort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" name="sort" value="Category" class="btn btn-danger"></form>
+				<form action="adminsort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" value="Id" name="sort" class="btn btn-danger"></form>
 			</span>
 			</div>	
 			
@@ -132,7 +133,13 @@ color:black;
 	Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
 	//Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.c1dzwtudyvfv.us-east-2.rds.amazonaws.com:3306/phase4db","root","rootraja");
 	Statement st=con.createStatement();
-	ResultSet rs=st.executeQuery("select * from fooditems_table");
+	ResultSet rs;
+	if(sort!=null){
+		 rs=st.executeQuery("select * from fooditems_table order by "+sort+" ASC");
+	}else
+	{
+		rs=st.executeQuery("select * from fooditems_table");
+	}
 	while(rs.next())
 	{
 %>
@@ -142,9 +149,18 @@ color:black;
 						<div class="col-md-8 col-sm-12" id="content">
 							<div style="font-family:'Montserrat',sans-serif;"><%=rs.getString("FoodName") %></div>
 							<span><%=rs.getString("Cousines") %>(<%=rs.getString("Category") %>)</span>
-							<div style="color:red;">Discount<%=rs.getString("DiscountPercentage") %></div>
-							<div id="order" style="padding:10px; font-family:'Montserrat',sans-serif; border-radius:5px; width:100px;">Price: <%=rs.getString("Price") %></div>
-						</div>			
+							<div style="background-color:#dc3545;padding:6px 4px;color:white;border-radius:5px;width:120px;text-align:center;">Discount <%=rs.getString("DiscountPercentage") %>%</div>
+							<div id="order" style="padding:10px 0;text-decoration:line-through;color:red; font-family:sans-serif; border-radius:5px; width:100px;">Price: Rs.<%=rs.getString("Price") %></div>
+							<%
+								String dis=rs.getString("DiscountPercentage");
+								String pri=rs.getString("Price");
+								int discount=100-Integer.valueOf(dis);
+								int price=Integer.valueOf(pri);
+								float amount=(discount*price)/100;
+								int amt= (int)amount;
+							%>
+							<div id="order" style="padding:0px 0; font-family:'Montserrat',sans-serif; border-radius:5px;">Price: Rs.<%=amt %></div>
+					</div>			
 						
 					</div>
 <%		
@@ -184,9 +200,9 @@ color:black;
 				<div id="container">
 				<div id="sort">Sort By : 
 				<span>
-				<form action="sort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" class="btn btn-danger" name="sort" value="Price"></form>
-				<form action="sort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" name="sort" value="Category" class="btn btn-danger"></form>
-				<form action="sort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" value="Id" name="sort" class="btn btn-danger"></form>
+				<form action="adminsort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" class="btn btn-danger" name="sort" value="Price"></form>
+				<form action="adminsort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" name="sort" value="Category" class="btn btn-danger"></form>
+				<form action="adminsort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" value="Id" name="sort" class="btn btn-danger"></form>
 				</span>
 				</div>
 <%
@@ -195,7 +211,13 @@ color:black;
 	Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
 	//Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.c1dzwtudyvfv.us-east-2.rds.amazonaws.com:3306/phase4db","root","rootraja");
 	Statement st=con.createStatement();
-	ResultSet rs=st.executeQuery("select * from fooditems_table");
+	ResultSet rs;
+	if(sort!=null){
+		 rs=st.executeQuery("select * from fooditems_table order by "+sort+" ASC");
+	}else
+	{
+		rs=st.executeQuery("select * from fooditems_table");
+	}
 	while(rs.next())
 	{
 %>
@@ -204,9 +226,20 @@ color:black;
 						<img class="foodlist" alt="" src="/FoodBox/resources/img/<%=rs.getString("ImgName") %>" />
 					</div>
 					<div class="content col-md-8">
-						<div class="style">Dish: <%=rs.getString("FoodName") %></div>
-						<h5>Price: Rs.<%=rs.getString("Price") %></h5>
-						<h5>Food Type: <%=rs.getString("Cousines") %></h5>
+						<div class="style" style="font-family:'Montserrat',sans-serif;">Dish: <%=rs.getString("FoodName") %> (<%=rs.getString("Cousines") %>)</div>
+				
+						<div style="background-color:#dc3545;padding:6px 4px;color:white;border-radius:5px;width:120px;text-align:center;">Discount <%=rs.getString("DiscountPercentage") %>%</div>
+							<div id="order" style="padding:10px 0;text-decoration:line-through;color:red; font-family:sans-serif; border-radius:5px; width:100px;">Price: Rs.<%=rs.getString("Price") %></div>
+							<%
+								String dis=rs.getString("DiscountPercentage");
+								String pri=rs.getString("Price");
+								int discount=100-Integer.valueOf(dis);
+								int price=Integer.valueOf(pri);
+								float amount=(discount*price)/100;
+								int amt= (int)amount;
+							%>
+							<div id="order" style="padding:0px 0; font-family:'Montserrat',sans-serif; border-radius:5px;">Price: Rs.<%=amt %></div>
+				
 						<br>
 						<a href="adminupdate.jsp?msg=<%=rs.getString("Id") %>"><button type="submit" name="update" class="btn btn-danger">Update</button></a></div>
 				</div>	
@@ -223,9 +256,9 @@ color:black;
 			<div id="container">
 				<div id="sort">Sort By : 
 				<span>
-				<form action="sort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" class="btn btn-danger" name="sort" value="Price"></form>
-				<form action="sort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" name="sort" value="Category" class="btn btn-danger"></form>
-				<form action="sort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" value="Id" name="sort" class="btn btn-danger"></form>
+				<form action="adminsort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" class="btn btn-danger" name="sort" value="Price"></form>
+				<form action="adminsort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" name="sort" value="Category" class="btn btn-danger"></form>
+				<form action="adminsort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" value="Id" name="sort" class="btn btn-danger"></form>
 				</span>
 				</div>
 <%
@@ -234,7 +267,13 @@ color:black;
 	Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
 	//Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.c1dzwtudyvfv.us-east-2.rds.amazonaws.com:3306/phase4db","root","rootraja");
 	Statement st=con.createStatement();
-	ResultSet rs=st.executeQuery("select * from fooditems_table");
+	ResultSet rs;
+	if(sort!=null){
+		 rs=st.executeQuery("select * from fooditems_table order by "+sort+" ASC");
+	}else
+	{
+		rs=st.executeQuery("select * from fooditems_table");
+	}
 	while(rs.next())
 	{
 %>
@@ -243,9 +282,20 @@ color:black;
 						<img class="foodlist" alt="" src="/FoodBox/resources/img/<%=rs.getString("ImgName") %>" />
 					</div>
 					<div class="content col-md-8">
-						<div class="style">Dish: <%=rs.getString("FoodName") %></div>
-						<h5>Price: Rs.<%=rs.getString("Price") %></h5>
-						<h5>Food Type: <%=rs.getString("Cousines") %></h5>
+						<div class="style" style="font-family:'Montserrat',sans-serif;">Dish: <%=rs.getString("FoodName") %> (<%=rs.getString("Cousines") %>)</div>
+				
+						<div style="background-color:#dc3545;padding:6px 4px;color:white;border-radius:5px;width:120px;text-align:center;">Discount <%=rs.getString("DiscountPercentage") %>%</div>
+							<div id="order" style="padding:10px 0;text-decoration:line-through;color:red; font-family:sans-serif; border-radius:5px; width:100px;">Price: Rs.<%=rs.getString("Price") %></div>
+							<%
+								String dis=rs.getString("DiscountPercentage");
+								String pri=rs.getString("Price");
+								int discount=100-Integer.valueOf(dis);
+								int price=Integer.valueOf(pri);
+								float amount=(discount*price)/100;
+								int amt= (int)amount;
+							%>
+							<div id="order" style="padding:0px 0; font-family:'Montserrat',sans-serif; border-radius:5px;">Price: Rs.<%=amt %></div>
+				
 						<br>
 						<form action="deletefood" method="post"><button type="submit" name="deletefood" value="<%=rs.getString("Id") %>" class="btn btn-danger">Delete</button></form></div>
 				</div>		
@@ -260,9 +310,9 @@ color:black;
 			<div id="container">
 				<div id="sort">Sort By : 
 				<span>
-				<form action="sort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" class="btn btn-danger" name="sort" value="Price"></form>
-				<form action="sort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" name="sort" value="Category" class="btn btn-danger"></form>
-				<form action="sort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" value="Id" name="sort" class="btn btn-danger"></form>
+				<form action="adminsort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" class="btn btn-danger" name="sort" value="Price"></form>
+				<form action="adminsort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" name="sort" value="Category" class="btn btn-danger"></form>
+				<form action="adminsort" method="post" style="display:inline-block;padding:0px 10px;"><input type="submit" value="Id" name="sort" class="btn btn-danger"></form>
 				</span>
 				</div>
 <%
@@ -271,7 +321,13 @@ color:black;
 	Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.cg2a3l4mwr3i.ap-south-1.rds.amazonaws.com:3306/foodbox","root","rootraja");
 	//Connection con=DriverManager.getConnection("jdbc:mysql://awsdb.c1dzwtudyvfv.us-east-2.rds.amazonaws.com:3306/phase4db","root","rootraja");
 	Statement st=con.createStatement();
-	ResultSet rs=st.executeQuery("select * from fooditems_table");
+	ResultSet rs;
+	if(sort!=null){
+		 rs=st.executeQuery("select * from fooditems_table order by "+sort+" ASC");
+	}else
+	{
+		rs=st.executeQuery("select * from fooditems_table");
+	}
 	while(rs.next())
 	{
 %>
@@ -280,10 +336,21 @@ color:black;
 						<img class="foodlist" alt="" src="/FoodBox/resources/img/<%=rs.getString("ImgName") %>" />
 					</div>
 					<div class="content col-md-8">
-						<div class="style" style="font-family:'Montserrat',sans-serif;">Dish: <%=rs.getString("FoodName") %></div>
-						<h5>Price: Rs.<%=rs.getString("Price") %></h5>
-						<h5>Food Type: <%=rs.getString("Cousines") %></h5>
-						
+						<div class="style" style="font-family:'Montserrat',sans-serif;">Dish: <%=rs.getString("FoodName") %> (<%=rs.getString("Cousines") %>)</div>
+				
+						<div style="background-color:#dc3545;padding:6px 4px;color:white;border-radius:5px;width:120px;text-align:center;">Discount <%=rs.getString("DiscountPercentage") %>%</div>
+							<div id="order" style="padding:10px 0;text-decoration:line-through;color:red; font-family:sans-serif; border-radius:5px; width:100px;">Price: Rs.<%=rs.getString("Price") %></div>
+							<%
+								String dis=rs.getString("DiscountPercentage");
+								String pri=rs.getString("Price");
+								int discount=100-Integer.valueOf(dis);
+								int price=Integer.valueOf(pri);
+								float amount=(discount*price)/100;
+								int amt= (int)amount;
+							%>
+							<div id="order" style="padding:0px 0; font-family:'Montserrat',sans-serif; border-radius:5px;">Price: Rs.<%=amt %></div>
+				
+						<br>	
 						<div id="status"><%=rs.getString("Status") %></div>
 						
 						<form action="changestatus" method="post"><button type="submit" name="change" value="<%=rs.getString("Id") %> <%=rs.getString("Status")%>" class="btn btn-danger">Change Status</button></form></div>

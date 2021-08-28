@@ -87,25 +87,6 @@ public class homecontroller {
 		
 		res.sendRedirect("signin.jsp");
 	}
-//	@RequestMapping("/signin")
-//	public void receipthome(HttpServletRequest req,HttpServletResponse res) throws IOException
-//	{
-//		String item=req.getParameter("addcart");
-//		list.add(item);
-//		HttpSession ses=req.getSession();
-//		ses.setAttribute("List",item);
-//		String item2=(String)ses.getAttribute("List");
-//		for(int i=0;i<list.size();i++)
-//	  	{
-//			System.out.print(list.get(i)+" ");
-//	  	}
-////		for(int i=0;i<item2.size();i++)
-////	  	{
-////			System.out.print(item2.get(i)+" ");
-////	  	}
-//		
-//		res.sendRedirect("page3.jsp?msg="+item+"");
-//	}
 	@RequestMapping("/userkart")
 	public void userkart(HttpServletRequest req,HttpServletResponse res) throws IOException, ClassNotFoundException, SQLException
 	{
@@ -183,6 +164,12 @@ public class homecontroller {
 	{
 		String sort=req.getParameter("sort");
 		res.sendRedirect("page2.jsp?msg="+sort+"");
+	}
+	@RequestMapping("/adminsort")
+	public void admin(HttpServletRequest req,HttpServletResponse res) throws IOException
+	{
+		String sort=req.getParameter("sort");
+		res.sendRedirect("adminhome.jsp?message="+sort+"");
 	}
 	
 	@RequestMapping("/usersearch")

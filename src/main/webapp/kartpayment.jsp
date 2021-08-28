@@ -139,8 +139,13 @@
 	ResultSet rs1=st1.executeQuery("select * from fooditems_table where Id='"+list.get(i)+"'");
 	while(rs1.next())
 		{
-		
-		total=total+Integer.parseInt(rs1.getString("Price"));
+		String dis=rs.getString("DiscountPercentage");
+		String pri=rs.getString("Price");
+		int discount=100-Integer.valueOf(dis);
+		int price=Integer.valueOf(pri);
+		float amount=(discount*price)/100;
+		int amt= (int)amount;
+		total=total+amt;
 	%>
 				<a href="userpage3.jsp?msg=<%=rs1.getString("Id") %>" style="text-decoration:none;color:black;">
 					<div id="item" class="row">
@@ -149,8 +154,10 @@
 						<div class="col-md-8 col-sm-12" id="content">
 							<div class="foodtitle" style="font-family:'Montserrat',sans-serif;"><%=rs1.getString("FoodName") %></div>
 							<span><%=rs1.getString("Cousines") %>(<%=rs1.getString("Category") %>)</span>
-							<div style="color:red;">Discount<%=rs1.getString("DiscountPercentage") %></div>
-							<div id="order" style="padding:10px; font-family:'Montserrat',sans-serif; border-radius:5px;">Price: Rs.<%=rs1.getString("Price") %></div>
+							<div style="background-color:red;padding:6px 4px;color:white;border-radius:5px;width:120px;text-align:center;">Discount <%=rs.getString("DiscountPercentage") %>%</div>
+							<div id="order" style="padding:10px 0;text-decoration:line-through;color:red; font-family:sans-serif; border-radius:5px; width:100px;">Price: Rs.<%=rs.getString("Price") %></div>
+							
+							<div id="order" style="padding:0px 0; font-family:'Montserrat',sans-serif; border-radius:5px;">Price: Rs.<%=amt %></div>
 						</div>			
 						
 					</div></a><hr>
