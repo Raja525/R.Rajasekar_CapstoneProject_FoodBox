@@ -48,7 +48,7 @@
 #itembox
 {
 	padding:2%;
-	height:500px;
+	
 	box-shadow:0 2px 12px -4px;
 }
 #itemboxmsg
@@ -91,6 +91,7 @@
 		font-size:24px;
 		padding:20px;
 	}
+	
 }
 </style>
 </head>

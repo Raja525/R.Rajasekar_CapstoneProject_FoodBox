@@ -120,7 +120,7 @@
 			<div class="col-md-8 col-sm-12" id="itemboxmsg" >
 				<div class="" style="font-family:'Montserrat',sans-serif;"><%=rs1.getString("FoodName") %></div>
 							<span><%=rs1.getString("Cousines") %>(<%=rs1.getString("Category") %>)</span>
-							<p>Description:<br><%=rs1.getString("Description") %></p>
+							
 							<div style="background-color:red;padding:6px 4px;color:white;border-radius:5px;width:120px;text-align:center;">Discount <%=rs1.getString("DiscountPercentage") %>%</div>
 							<div id="order" style="padding:10px 0;text-decoration:line-through;color:red; font-family:sans-serif; border-radius:5px; width:100px;">Price: Rs.<%=rs1.getString("Price") %></div>
 							<%
