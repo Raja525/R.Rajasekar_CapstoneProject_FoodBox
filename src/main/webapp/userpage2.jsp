@@ -278,7 +278,7 @@ box-shadow:0px 2px 12px -4px;
 						}
 						else
 						{
-							 rs=st.executeQuery("select * from fooditems_table where (Id='"+msg+"' or Cousines='"+msg+"' or Category='"+msg+"' or DiscountPercentage='"+msg+"') and (Status='enable') ");
+							 rs=st.executeQuery("select * from fooditems_table where (Id='"+msg+"' or Cousines='"+msg+"' or FoodName='"+msg+"' or Category='"+msg+"' or DiscountPercentage='"+msg+"') and (Status='enable') ");
 						}
 						while(rs.next()){
 								count++;
