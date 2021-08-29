@@ -352,7 +352,7 @@ padding:6% 0;
 		</div>
 		
 	</div></a>
-	<a href="userpage2.jsp?msg=Chineese"><div class="row">
+	<a href="userpage2.jsp?msg=Continental"><div class="row">
 		<div class="col-md-12 col-lg-12 img" style="background-image:url('/FoodBox/resources/img/Chinese.jpg');">
 				<div class="msg">
 			<div class="title">Chineese</div>

@@ -351,7 +351,7 @@ padding:6% 0;
 		</div>
 		
 	</div></a>
-	<a href="page2.jsp?msg=Chineese"><div class="row">
+	<a href="page2.jsp?msg=Continental"><div class="row">
 		<div id="img2" class="col-md-12 col-lg-12 img" style="background-image:url('/FoodBox/resources/img/Chinese.jpg');">
 				<div class="msg">
 			<div class="title">Chineese</div>
@@ -359,7 +359,7 @@ padding:6% 0;
 		
 			</div>
 	</div></a>
-	<a href="page3.jsp?msg=Italian"><div class="row">
+	<a href="page2.jsp?msg=Italian"><div class="row">
 		<div id="img3" class="col-md-12 col-lg-12 img" style="background-image:url('/FoodBox/resources/img/Italian.jpg');">
 				<div class="msg">
 			<div class="title">Italian</div>
