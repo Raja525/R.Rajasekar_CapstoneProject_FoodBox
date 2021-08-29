@@ -83,6 +83,10 @@
 	{
 		height:200px;
 	}
+	#itemboxmsg
+	{
+		padding:5px 10px;
+	}
 	#itembox
 	{
 		padding:0px;
@@ -131,7 +135,7 @@
 						<div class="foodtitle" style="font-family:'Montserrat',sans-serif;"><%=rs.getString("FoodName") %></div>
 						<h3><%=rs.getString("Cousines") %> (<%=rs.getString("Category") %>)</h3>
 						<p>Description: <%=rs.getString("Description") %><br>
-							<div style="background-color:red;padding:6px 4px;color:white;border-radius:5px;width:120px;text-align:center;">Discount <%=rs.getString("DiscountPercentage") %>%</div>
+							<div style="background-color:red;padding:6px 4px;color:white;float:right;border-radius:5px;width:120px;text-align:center;">Discount <%=rs.getString("DiscountPercentage") %>%</div>
 							<div id="order" style="padding:10px 0;text-decoration:line-through;color:red; font-family:sans-serif; border-radius:5px; width:100px;">Price: Rs.<%=rs.getString("Price") %></div>
 							<%
 								String dis=rs.getString("DiscountPercentage");

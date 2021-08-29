@@ -215,7 +215,7 @@ padding:6% 0;
 <div id="section4">
 <div id="sec3title">Discouts For U!</div>
 	<div class="row">
-		<a href="page2.jsp?msg=1" class="col-md-4 col-lg-4 box"><div>
+		<a href="page2.jsp?msg=14" class="col-md-4 col-lg-4 box"><div>
 			<div class="card" style="width: 18rem;">
   				<img class="card-img-top" src="/FoodBox/resources/img/ChickenBiryani.jpg" alt="Card image cap">
   				<div class="card-body">
