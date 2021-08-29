@@ -163,7 +163,7 @@ box-shadow:0px 2px 12px -4px;
 		<div id="navbar" class="row">
 				<a href="home.jsp"  class="col-md-2 col-sm-12" style="text-decoration:none;color:black;"><div id="logo">FoodBox</div></a>
 				<div class="col-md-10 col-sm-12" id="searchcontainer">
-					<form action="search" method="post" class="form-inline">
+					<form action="searching" method="post" class="form-inline">
 					<input placeholder="search" type="search" name="search" id="searchbar" class="form-control"  style="display:inline-block; ">
 					<button type="submit" class="btn" style="display:inline-block;padding-top:5px "><i class="fa fa-search"></i></button>
 					<a href="#" style="padding:0 20px;color:#dc3545"><i  id="cart"  class="fa fa-cart-plus" style="font-size:30px"></i></a>
@@ -277,7 +277,7 @@ box-shadow:0px 2px 12px -4px;
 						}
 						else
 						{
-							 rs=st.executeQuery("select * from fooditems_table where (Id='"+msg+"' or Cousines='"+msg+"' or Category='"+msg+"' or DiscountPercentage='"+msg+"') and (Status='enable') ");
+							 rs=st.executeQuery("select * from fooditems_table where (Id='"+msg+"' or Cousines='"+msg+"' or FoodName='"+msg+"' or Category='"+msg+"' or DiscountPercentage='"+msg+"') and (Status='enable') ");
 						}
 						while(rs.next()){
 								count++;

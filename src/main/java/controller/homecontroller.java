@@ -136,7 +136,7 @@ public class homecontroller {
 		
 		res.sendRedirect("receipt.jsp");
 	}
-	@RequestMapping("/search")
+	@RequestMapping("/searching")
 	public void search(HttpServletRequest req,HttpServletResponse res) throws IOException
 	{
 		String search=req.getParameter("search");
